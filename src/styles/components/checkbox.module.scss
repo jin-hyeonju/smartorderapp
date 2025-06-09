@@ -1,0 +1,66 @@
+@import'../common/variables';
+
+.checkboxlabel {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.checkboxcustom{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--cdd);
+  background-color: var(--cff);
+  &::after {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 7px;
+    border: 2px solid var(--primary);
+    transform: rotate(-45deg);
+    margin-top: -3px;
+    border-top: 0;
+    border-right: 0;
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+  & + .text{
+    margin-right: 0;
+    margin-left: 5px;
+    line-height: 24px;
+  }
+}
+
+.checkboxinput {
+  visibility: hidden;
+  width: 0;
+  left: 0;
+  &:checked + .checkboxcustom{
+    border: 1px solid var(--primary);
+    &:after{
+      opacity: 1;
+    }
+    &:disabled{
+      border: 1px solid var(--ce7);
+      background-color: var(--bgf5);
+    }
+  }
+  &:disabled + .checkboxcustom{
+    cursor: default;
+    border: 1px solid var(--ce7);
+    background-color: var(--bgf5);
+    &:after{
+      border-color: var(--cbb);
+    }
+  }
+}
+
+.text{
+  margin-right: 5px;
+  @include h5();
+  font-weight: 400;
+}
