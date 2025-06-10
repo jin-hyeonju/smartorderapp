@@ -1,0 +1,23 @@
+@import "../common/variables";
+
+.pagenation{
+  margin-top: 30px;
+  button{
+    font-family: 'Pretendard';
+    font-size: 1.4em;
+    &:hover {
+      background-color: transparent;
+    }
+    &[aria-current="true"]{
+      font-weight: 700;
+      background-color: var(--cee);
+      &:hover {
+        background-color: var(--cee);
+      }
+    }
+    svg{
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
